@@ -1,0 +1,2025 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RoofingCompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Absence">
+    <Key>
+      <PropertyRef Name="IdAbsence" />
+    </Key>
+    <Property Name="IdAbsence" Type="Int32" Nullable="false" />
+    <Property Name="IdAbsenceType" Type="Int32" />
+    <Property Name="IdEmployee" Type="Int32" />
+    <Property Name="StartOfAbsence" Type="DateTime" Precision="0" />
+    <Property Name="EndOfAbsence" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="AbsenceType" Relationship="Self.FK__Absence__IdAbsen__10566F31" FromRole="Absence" ToRole="AbsenceType" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__Absence__IdEmplo__114A936A" FromRole="Absence" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="AbsenceType">
+    <Key>
+      <PropertyRef Name="IdAbsenceType" />
+    </Key>
+    <Property Name="IdAbsenceType" Type="Int32" Nullable="false" />
+    <Property Name="AbscenceReason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Multiplier" Type="Double" />
+    <NavigationProperty Name="Absences" Relationship="Self.FK__Absence__IdAbsen__10566F31" FromRole="AbsenceType" ToRole="Absence" />
+  </EntityType>
+  <EntityType Name="Accident">
+    <Key>
+      <PropertyRef Name="IdAccident" />
+    </Key>
+    <Property Name="IdAccident" Type="Int32" Nullable="false" />
+    <Property Name="IdEmployee" Type="Int32" Nullable="false" />
+    <Property Name="AccidentDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AccidentDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FKAccidentEmployee" FromRole="Accident" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Allocation">
+    <Key>
+      <PropertyRef Name="IdAllocation" />
+    </Key>
+    <Property Name="IdAllocation" Type="Int32" Nullable="false" />
+    <Property Name="IdEmployee" Type="Int32" />
+    <Property Name="IdDepartment" Type="Int32" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Department" Relationship="Self.FK__Allocatio__IdDep__1EA48E88" FromRole="Allocation" ToRole="Department" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__Allocatio__IdEmp__1DB06A4F" FromRole="Allocation" ToRole="Employee" />
+    <NavigationProperty Name="PlannedProductionEmployeeDetails" Relationship="RoofingCompanyModel.FKPlannedProductionEmployeeDetailsAllocation" FromRole="Allocation" ToRole="PlannedProductionEmployeeDetail" />
+  </EntityType>
+  <EntityType Name="Contract">
+    <Key>
+      <PropertyRef Name="IdContract" />
+    </Key>
+    <Property Name="IdContract" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="IdEmployee" Type="Int32" />
+    <Property Name="IdPosition" Type="Int32" Nullable="false" />
+    <Property Name="HealTestDate" Type="DateTime" Precision="0" />
+    <Property Name="WorkplaceTrainingDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__Contract__IdEmpl__07C12930" FromRole="Contract" ToRole="Employee" />
+    <NavigationProperty Name="Position" Relationship="Self.FK__Contract__IdPosi__08B54D69" FromRole="Contract" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="Contractor">
+    <Key>
+      <PropertyRef Name="IdContractor" />
+    </Key>
+    <Property Name="IdContractor" Type="Int32" Nullable="false" />
+    <Property Name="ContractorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HouseNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ApartmentNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="NIP" Type="Int64" />
+    <Property Name="KRS" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK__Invoice__IdContr__30C33EC3" FromRole="Contractor" ToRole="Invoice" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="IdCustomer" />
+    </Key>
+    <Property Name="IdCustomer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ZipCode" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Street" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HouseNumber" Type="Int32" Nullable="false" />
+    <Property Name="ApartmentNumber" Type="Int32" Nullable="false" />
+    <Property Name="Pesel" Type="Double" />
+    <Property Name="NIP" Type="Double" />
+    <Property Name="KRS" Type="Double" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="OrderCustomers" Relationship="Self.OrederCustomerCustomer" FromRole="Customer" ToRole="OrderCustomer" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="IdDepartment" />
+    </Key>
+    <Property Name="IdDepartment" Type="Int32" Nullable="false" />
+    <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Allocations" Relationship="Self.FK__Allocatio__IdDep__1EA48E88" FromRole="Department" ToRole="Allocation" />
+    <NavigationProperty Name="Expenses" Relationship="Self.FK__Expense__IdDepar__3493CFA7" FromRole="Department" ToRole="Expense" />
+    <NavigationProperty Name="Staffs" Relationship="Self.FK__Staff__IdDeparme__19DFD96B" FromRole="Department" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="Education">
+    <Key>
+      <PropertyRef Name="IdEducation" />
+    </Key>
+    <Property Name="IdEducation" Type="Int32" Nullable="false" />
+    <Property Name="IdEmployee" Type="Int32" />
+    <Property Name="IdEducationLevel" Type="Int32" />
+    <Property Name="GraduationDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="EducationLevel" Relationship="Self.FK__Education__IdEdu__245D67DE" FromRole="Education" ToRole="EducationLevel" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__Education__IdEmp__236943A5" FromRole="Education" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="EducationLevel">
+    <Key>
+      <PropertyRef Name="IdEducationLevel" />
+    </Key>
+    <Property Name="IdEducationLevel" Type="Int32" Nullable="false" />
+    <Property Name="EducationLevel1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DegreeShort" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Educations" Relationship="Self.FK__Education__IdEdu__245D67DE" FromRole="EducationLevel" ToRole="Education" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="IdEmployee" />
+    </Key>
+    <Property Name="IdEmployee" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HouseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ApartmentNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PESEL" Type="Int64" />
+    <NavigationProperty Name="Absences" Relationship="Self.FK__Absence__IdEmplo__114A936A" FromRole="Employee" ToRole="Absence" />
+    <NavigationProperty Name="Accidents" Relationship="Self.FKAccidentEmployee" FromRole="Employee" ToRole="Accident" />
+    <NavigationProperty Name="Allocations" Relationship="Self.FK__Allocatio__IdEmp__1DB06A4F" FromRole="Employee" ToRole="Allocation" />
+    <NavigationProperty Name="Contracts" Relationship="Self.FK__Contract__IdEmpl__07C12930" FromRole="Employee" ToRole="Contract" />
+    <NavigationProperty Name="Educations" Relationship="Self.FK__Education__IdEmp__236943A5" FromRole="Employee" ToRole="Education" />
+    <NavigationProperty Name="MedicalExaminations" Relationship="Self.FK__MedicalEx__IdEmp__2A164134" FromRole="Employee" ToRole="MedicalExamination" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__IdEmplo__151B244E" FromRole="Employee" ToRole="Payment" />
+    <NavigationProperty Name="Trainings" Relationship="Self.FK__Training__IdEmpl__2739D489" FromRole="Employee" ToRole="Training" />
+    <NavigationProperty Name="EntranceControls" Relationship="Self.FKEnteranceControlEmployee" FromRole="Employee" ToRole="EntranceControl" />
+    <NavigationProperty Name="FEMAnalysis" Relationship="Self.FkFEMAnalysisEmployee" FromRole="Employee" ToRole="FEMAnalysis" />
+    <NavigationProperty Name="SafetyControls" Relationship="Self.FkInspectedEmployee" FromRole="Employee" ToRole="SafetyControl" />
+    <NavigationProperty Name="OutControls" Relationship="Self.FkOutControlEmployee" FromRole="Employee" ToRole="OutControl" />
+    <NavigationProperty Name="SafetyTraining" Relationship="Self.FkTrainedEmployee" FromRole="Employee" ToRole="SafetyTraining" />
+    <NavigationProperty Name="OrderCustomers" Relationship="Self.OrderCustomerEmployee" FromRole="Employee" ToRole="OrderCustomer" />
+  </EntityType>
+  <EntityType Name="EmployeePlan">
+    <Key>
+      <PropertyRef Name="IdEmployeePlan" />
+    </Key>
+    <Property Name="IdEmployeePlan" Type="Int32" Nullable="false" />
+    <Property Name="IdMaintenance" Type="Int32" Nullable="false" />
+    <Property Name="IdEmployee" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Maintenance" Relationship="Self.FK_MaintenanceEmployee" FromRole="EmployeePlan" ToRole="Maintenance" />
+  </EntityType>
+  <EntityType Name="EntranceControl">
+    <Key>
+      <PropertyRef Name="IdEntranceControl" />
+    </Key>
+    <Property Name="IdEntranceControl" Type="Int32" Nullable="false" />
+    <Property Name="IdSfDetail" Type="Int32" Nullable="false" />
+    <Property Name="IdEmployee" Type="Int32" Nullable="false" />
+    <Property Name="ControlDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ControlStatus" Type="Boolean" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FKEnteranceControlEmployee" FromRole="EntranceControl" ToRole="Employee" />
+    <NavigationProperty Name="SfOrderDetail" Relationship="Self.EntranceControlSfOrderDetail" FromRole="EntranceControl" ToRole="SfOrderDetail" />
+    <NavigationProperty Name="SfOrderDetail1" Relationship="Self.FKSfDetail" FromRole="EntranceControl" ToRole="SfOrderDetail" />
+  </EntityType>
+  <EntityType Name="Expense">
+    <Key>
+      <PropertyRef Name="IdExpense" />
+    </Key>
+    <Property Name="IdExpense" Type="Int32" Nullable="false" />
+    <Property Name="IdDepartment" Type="Int32" />
+    <Property Name="IdInvoice" Type="Int32" />
+    <NavigationProperty Name="Department" Relationship="Self.FK__Expense__IdDepar__3493CFA7" FromRole="Expense" ToRole="Department" />
+    <NavigationProperty Name="Invoice" Relationship="Self.FK__Expense__IdInvoi__3587F3E0" FromRole="Expense" ToRole="Invoice" />
+  </EntityType>
+  <EntityType Name="Failure">
+    <Key>
+      <PropertyRef Name="IdFailure" />
+    </Key>
+    <Property Name="IdFailure" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdProces" Type="Int32" Nullable="false" />
+    <Property Name="Specification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FailureDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="FailureMaintenances" Relationship="Self.FK_FailureFailureMaintenance" FromRole="Failure" ToRole="FailureMaintenance" />
+    <NavigationProperty Name="ProductionProce" Relationship="Self.FKProductionProces" FromRole="Failure" ToRole="ProductionProces" />
+  </EntityType>
+  <EntityType Name="FailureMaintenance">
+    <Key>
+      <PropertyRef Name="IdFailureMaint" />
+    </Key>
+    <Property Name="IdFailureMaint" Type="Int32" Nullable="false" />
+    <Property Name="IdFailure" Type="Int32" Nullable="false" />
+    <Property Name="IdMaintenance" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Failure" Relationship="Self.FK_FailureFailureMaintenance" FromRole="FailureMaintenance" ToRole="Failure" />
+    <NavigationProperty Name="Maintenance" Relationship="Self.FK_MaintenanceFailureMaintenance" FromRole="FailureMaintenance" ToRole="Maintenance" />
+  </EntityType>
+  <EntityType Name="FEMAnalysi">
+    <Key>
+      <PropertyRef Name="IdFEMAnalysis" />
+    </Key>
+    <Property Name="IdFEMAnalysis" Type="Int32" Nullable="false" />
+    <Property Name="IdEmployee" Type="Int32" Nullable="false" />
+    <Property Name="NewPattern" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="AnalysisResults" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FkFEMAnalysisEmployee" FromRole="FEMAnalysis" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="IdInvoice" />
+    </Key>
+    <Property Name="IdInvoice" Type="Int32" Nullable="false" />
+    <Property Name="IdContractor" Type="Int32" />
+    <Property Name="IdInvoiceType" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Sum" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Contractor" Relationship="Self.FK__Invoice__IdContr__30C33EC3" FromRole="Invoice" ToRole="Contractor" />
+    <NavigationProperty Name="Expenses" Relationship="Self.FK__Expense__IdInvoi__3587F3E0" FromRole="Invoice" ToRole="Expense" />
+    <NavigationProperty Name="InvoiceType" Relationship="Self.FK__Invoice__IdInvoi__31B762FC" FromRole="Invoice" ToRole="InvoiceType" />
+  </EntityType>
+  <EntityType Name="InvoiceType">
+    <Key>
+      <PropertyRef Name="IdInvoiceType" />
+    </Key>
+    <Property Name="IdInvoiceType" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK__Invoice__IdInvoi__31B762FC" FromRole="InvoiceType" ToRole="Invoice" />
+  </EntityType>
+  <EntityType Name="Machine">
+    <Key>
+      <PropertyRef Name="IdMachine" />
+    </Key>
+    <Property Name="IdMachine" Type="Int32" Nullable="false" />
+    <Property Name="IdMachineType" Type="Int32" Nullable="false" />
+    <Property Name="MachineName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProducerMachine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProductionYear" Type="Int32" />
+    <Property Name="PowerMachine" Type="Single" />
+    <Property Name="WorkingArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CatalogMachineNr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MetersPerHour" Type="Single" Nullable="false" />
+    <NavigationProperty Name="Maintenances" Relationship="Self.FK_MachineMaintenance" FromRole="Machine" ToRole="Maintenance" />
+    <NavigationProperty Name="MachineType" Relationship="Self.FK_MachineTypeMachine" FromRole="Machine" ToRole="MachineType" />
+    <NavigationProperty Name="SkillsForMachines" Relationship="RoofingCompanyModel.FK__SkillsFor__IdMac__0B91BA14" FromRole="Machine" ToRole="SkillsForMachine" />
+  </EntityType>
+  <EntityType Name="MachineType">
+    <Key>
+      <PropertyRef Name="IdMachineType" />
+    </Key>
+    <Property Name="IdMachineType" Type="Int32" Nullable="false" />
+    <Property Name="MachineTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Machines" Relationship="Self.FK_MachineTypeMachine" FromRole="MachineType" ToRole="Machine" />
+  </EntityType>
+  <EntityType Name="MaintDescription">
+    <Key>
+      <PropertyRef Name="IdMaintDesc" />
+    </Key>
+    <Property Name="IdMaintDesc" Type="Int32" Nullable="false" />
+    <Property Name="MaintDescName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaintDescription1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="InspectionTimeInterval" Type="Single" Nullable="false" />
+    <NavigationProperty Name="Maintenances" Relationship="Self.FK_MainDescriptionMaintenance" FromRole="MaintDescription" ToRole="Maintenance" />
+  </EntityType>
+  <EntityType Name="Maintenance">
+    <Key>
+      <PropertyRef Name="IdMaintenance" />
+    </Key>
+    <Property Name="IdMaintenance" Type="Int32" Nullable="false" />
+    <Property Name="IdMachine" Type="Int32" Nullable="false" />
+    <Property Name="IdMaintType" Type="Int32" Nullable="false" />
+    <Property Name="IdMaintDesc" Type="Int32" Nullable="false" />
+    <Property Name="DateAcceptOrder" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartDatePlan" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDatePlan" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MaintenanceNr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EmployeePlans" Relationship="Self.FK_MaintenanceEmployee" FromRole="Maintenance" ToRole="EmployeePlan" />
+    <NavigationProperty Name="FailureMaintenances" Relationship="Self.FK_MaintenanceFailureMaintenance" FromRole="Maintenance" ToRole="FailureMaintenance" />
+    <NavigationProperty Name="Machine" Relationship="Self.FK_MachineMaintenance" FromRole="Maintenance" ToRole="Machine" />
+    <NavigationProperty Name="MaintDescription" Relationship="Self.FK_MainDescriptionMaintenance" FromRole="Maintenance" ToRole="MaintDescription" />
+    <NavigationProperty Name="Realizations" Relationship="Self.FK_MaintenanceRealization" FromRole="Maintenance" ToRole="Realization" />
+    <NavigationProperty Name="MaintType" Relationship="Self.FK_MaintTypeMaintenance" FromRole="Maintenance" ToRole="MaintType" />
+    <NavigationProperty Name="PlannedProduction" Relationship="RoofingCompanyModel.FkMachine" FromRole="Maintenance" ToRole="PlannedProduction" />
+  </EntityType>
+  <EntityType Name="MaintPart">
+    <Key>
+      <PropertyRef Name="IdMaintPart" />
+    </Key>
+    <Property Name="IdMaintPart" Type="Int32" Nullable="false" />
+    <Property Name="IdMaintenance" Type="Int32" Nullable="false" />
+    <Property Name="IdPart" Type="Int32" Nullable="false" />
+    <Property Name="PartQuantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Part" Relationship="Self.FK_PartMainPart" FromRole="MaintPart" ToRole="Part" />
+  </EntityType>
+  <EntityType Name="MaintType">
+    <Key>
+      <PropertyRef Name="IdMaintenanceType" />
+    </Key>
+    <Property Name="IdMaintenanceType" Type="Int32" Nullable="false" />
+    <Property Name="MaintenanceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Maintenances" Relationship="Self.FK_MaintTypeMaintenance" FromRole="MaintType" ToRole="Maintenance" />
+  </EntityType>
+  <EntityType Name="MedicalExamination">
+    <Key>
+      <PropertyRef Name="IdMedicalExamination" />
+    </Key>
+    <Property Name="IdMedicalExamination" Type="Int32" Nullable="false" />
+    <Property Name="IdEmployee" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__MedicalEx__IdEmp__2A164134" FromRole="MedicalExamination" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="OrderCustomer">
+    <Key>
+      <PropertyRef Name="IdOrderCustomer" />
+    </Key>
+    <Property Name="IdOrderCustomer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCustomer" Type="Int32" Nullable="false" />
+    <Property Name="IdEmployee" Type="Int32" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Markup" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.OrederCustomerCustomer" FromRole="OrderCustomer" ToRole="Customer" />
+    <NavigationProperty Name="Employee" Relationship="Self.OrderCustomerEmployee" FromRole="OrderCustomer" ToRole="Employee" />
+    <NavigationProperty Name="OrderDetails" Relationship="Self.OrderDetailOrderCustomer" FromRole="OrderCustomer" ToRole="OrderDetail" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="IdDetail" />
+    </Key>
+    <Property Name="IdDetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdOrderCustomer" Type="Int32" Nullable="false" />
+    <Property Name="IdProduct" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="OrderCustomer" Relationship="Self.OrderDetailOrderCustomer" FromRole="OrderDetail" ToRole="OrderCustomer" />
+    <NavigationProperty Name="PlannedProductions" Relationship="Self.FkOrderDetail" FromRole="OrderDetail" ToRole="PlannedProduction" />
+    <NavigationProperty Name="Product" Relationship="Self.OrderDetailProduct" FromRole="OrderDetail" ToRole="Product" />
+    <NavigationProperty Name="PlannedProductions1" Relationship="Self.PlannedProductionOrderDetail" FromRole="OrderDetail" ToRole="PlannedProduction" />
+  </EntityType>
+  <EntityType Name="OutControl">
+    <Key>
+      <PropertyRef Name="IdProcess" />
+    </Key>
+    <Property Name="IdProcess" Type="Int32" Nullable="false" />
+    <Property Name="IdEmployee" Type="Int32" Nullable="false" />
+    <Property Name="ControlDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ControlStatus" Type="Boolean" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FkOutControlEmployee" FromRole="OutControl" ToRole="Employee" />
+    <NavigationProperty Name="ProductionProce" Relationship="Self.FkOutControlProcess" FromRole="OutControl" ToRole="ProductionProces" />
+  </EntityType>
+  <EntityType Name="Outsourcing">
+    <Key>
+      <PropertyRef Name="IdOutsourcing" />
+    </Key>
+    <Property Name="IdOutsourcing" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdOutsourcingType" Type="Int32" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ZipCode" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Street" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HouseNumber" Type="Int32" Nullable="false" />
+    <Property Name="ApartmentNumber" Type="Int32" Nullable="false" />
+    <Property Name="NIP" Type="Double" Nullable="false" />
+    <Property Name="KRS" Type="Double" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="OutsourcingCommitments" Relationship="Self.OutsourcingCommitmentOutsourcing" FromRole="Outsourcing" ToRole="OutsourcingCommitment" />
+    <NavigationProperty Name="OutsourcingType" Relationship="Self.OutsourcingOutsourcingType" FromRole="Outsourcing" ToRole="OutsourcingType" />
+  </EntityType>
+  <EntityType Name="OutsourcingCommitment">
+    <Key>
+      <PropertyRef Name="IdCommitment" />
+    </Key>
+    <Property Name="IdCommitment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdOutsourcing" Type="Int32" Nullable="false" />
+    <Property Name="EndCommitmentDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Outsourcing" Relationship="Self.OutsourcingCommitmentOutsourcing" FromRole="OutsourcingCommitment" ToRole="Outsourcing" />
+  </EntityType>
+  <EntityType Name="OutsourcingType">
+    <Key>
+      <PropertyRef Name="IdOutsourcingType" />
+    </Key>
+    <Property Name="IdOutsourcingType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OutsourcingType1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Outsourcings" Relationship="Self.OutsourcingOutsourcingType" FromRole="OutsourcingType" ToRole="Outsourcing" />
+  </EntityType>
+  <EntityType Name="Part">
+    <Key>
+      <PropertyRef Name="IdPart" />
+    </Key>
+    <Property Name="IdPart" Type="Int32" Nullable="false" />
+    <Property Name="IdPartType" Type="Int32" Nullable="false" />
+    <Property Name="IdUnit" Type="Int32" Nullable="false" />
+    <Property Name="PartName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Producer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CatalogPartNr" Type="Int32" Nullable="false" />
+    <Property Name="QuantityWarehouse" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MaintParts" Relationship="Self.FK_PartMainPart" FromRole="Part" ToRole="MaintPart" />
+    <NavigationProperty Name="PartRequests" Relationship="Self.FK_PartPartRequest" FromRole="Part" ToRole="PartRequest" />
+    <NavigationProperty Name="PartOrderDetails" Relationship="Self.FK_PartRequestPartOrderDetail" FromRole="Part" ToRole="PartOrderDetail" />
+    <NavigationProperty Name="PartType" Relationship="Self.FK_PartTypePart" FromRole="Part" ToRole="PartType" />
+    <NavigationProperty Name="Unit" Relationship="Self.FK_UnitPart" FromRole="Part" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="PartOrder">
+    <Key>
+      <PropertyRef Name="IdPartOrder" />
+    </Key>
+    <Property Name="IdPartOrder" Type="Int32" Nullable="false" />
+    <Property Name="IdSupplier" Type="Int32" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StatusPartOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CostPartOrder" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PartOrderDetails" Relationship="Self.FK_PartOrderPartOrderDetail" FromRole="PartOrder" ToRole="PartOrderDetail" />
+  </EntityType>
+  <EntityType Name="PartOrderDetail">
+    <Key>
+      <PropertyRef Name="IdPartOrderDetail" />
+    </Key>
+    <Property Name="IdPartOrderDetail" Type="Int32" Nullable="false" />
+    <Property Name="IdPartOrder" Type="Int32" Nullable="false" />
+    <Property Name="IdPart" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Part" Relationship="Self.FK_PartRequestPartOrderDetail" FromRole="PartOrderDetail" ToRole="Part" />
+    <NavigationProperty Name="PartOrder" Relationship="Self.FK_PartOrderPartOrderDetail" FromRole="PartOrderDetail" ToRole="PartOrder" />
+  </EntityType>
+  <EntityType Name="PartOrderRequest">
+    <Key>
+      <PropertyRef Name="IdPartOrderRequest" />
+    </Key>
+    <Property Name="IdPartOrderRequest" Type="Int32" Nullable="false" />
+    <Property Name="IdPartOrder" Type="Int32" Nullable="false" />
+    <Property Name="IdPartRequest" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PartRequest" Relationship="Self.FK_PartRequestPartOrderRequest" FromRole="PartOrderRequest" ToRole="PartRequest" />
+  </EntityType>
+  <EntityType Name="PartRequest">
+    <Key>
+      <PropertyRef Name="IdPartRequest" />
+    </Key>
+    <Property Name="IdPartRequest" Type="Int32" Nullable="false" />
+    <Property Name="IdPart" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="StatusPart" Type="Int32" Nullable="false" />
+    <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Part" Relationship="Self.FK_PartPartRequest" FromRole="PartRequest" ToRole="Part" />
+    <NavigationProperty Name="PartOrderRequests" Relationship="Self.FK_PartRequestPartOrderRequest" FromRole="PartRequest" ToRole="PartOrderRequest" />
+  </EntityType>
+  <EntityType Name="PartType">
+    <Key>
+      <PropertyRef Name="IdPartType" />
+    </Key>
+    <Property Name="IdPartType" Type="Int32" Nullable="false" />
+    <Property Name="PartType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Parts" Relationship="Self.FK_PartTypePart" FromRole="PartType" ToRole="Part" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="IdPayment" />
+    </Key>
+    <Property Name="IdPayment" Type="Int32" Nullable="false" />
+    <Property Name="Bonus" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="IdEmployee" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Sum" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__Payment__IdEmplo__151B244E" FromRole="Payment" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="PlannedProduction">
+    <Key>
+      <PropertyRef Name="IdPlan" />
+    </Key>
+    <Property Name="IdPlan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdDetail" Type="Int32" Nullable="false" />
+    <Property Name="IdMachine" Type="Int32" Nullable="false" />
+    <Property Name="PlannedStartd" Type="DateTime" Precision="0" />
+    <Property Name="PlannedEndd" Type="DateTime" Precision="0" />
+    <Property Name="Inproduction" Type="Boolean" />
+    <NavigationProperty Name="OrderDetail" Relationship="Self.FkOrderDetail" FromRole="PlannedProduction" ToRole="OrderDetail" />
+    <NavigationProperty Name="OrderDetail1" Relationship="Self.PlannedProductionOrderDetail" FromRole="PlannedProduction" ToRole="OrderDetail" />
+    <NavigationProperty Name="PlannedProductionEmployeeDetails" Relationship="Self.FKPlannedProductionEmployeeDetailsPlannedProduction" FromRole="PlannedProduction" ToRole="PlannedProductionEmployeeDetails" />
+    <NavigationProperty Name="ProductionProces" Relationship="Self.FKProductionProcesPlannedProduction" FromRole="PlannedProduction" ToRole="ProductionProces" />
+    <NavigationProperty Name="Maintenance" Relationship="RoofingCompanyModel.FkMachine" FromRole="PlannedProduction" ToRole="Maintenance" />
+  </EntityType>
+  <EntityType Name="PlannedProductionEmployeeDetail">
+    <Key>
+      <PropertyRef Name="IdDetail" />
+    </Key>
+    <Property Name="IdDetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdProces" Type="Int32" Nullable="false" />
+    <Property Name="IdEmployee" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="PlannedProduction" Relationship="Self.FKPlannedProductionEmployeeDetailsPlannedProduction" FromRole="PlannedProductionEmployeeDetails" ToRole="PlannedProduction" />
+    <NavigationProperty Name="Allocation" Relationship="RoofingCompanyModel.FKPlannedProductionEmployeeDetailsAllocation" FromRole="PlannedProductionEmployeeDetail" ToRole="Allocation" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="IdPosition" />
+    </Key>
+    <Property Name="IdPosition" Type="Int32" Nullable="false" />
+    <Property Name="Workplace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ValidityOfOshTraining" Type="Byte" />
+    <Property Name="VailidityOfMedicalExam" Type="Byte" />
+    <NavigationProperty Name="Contracts" Relationship="Self.FK__Contract__IdPosi__08B54D69" FromRole="Position" ToRole="Contract" />
+    <NavigationProperty Name="SkillsForMachines" Relationship="Self.FK__SkillsFor__IdPos__0B91BA14" FromRole="Position" ToRole="SkillsForMachine" />
+    <NavigationProperty Name="Staffs" Relationship="Self.FK__Staff__IdPositio__1AD3FDA4" FromRole="Position" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="IdProduct" />
+    </Key>
+    <Property Name="IdProduct" Type="Int32" Nullable="false" />
+    <Property Name="IdSemiFinished" Type="Int32" Nullable="false" />
+    <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdTechnology" Type="Int32" Nullable="false" />
+    <Property Name="InputDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="OrderDetails" Relationship="Self.OrderDetailProduct" FromRole="Product" ToRole="OrderDetail" />
+    <NavigationProperty Name="SemiFinished" Relationship="Self.FkProductIdSF" FromRole="Product" ToRole="SemiFinished" />
+    <NavigationProperty Name="Technology" Relationship="Self.FkProductIdTech" FromRole="Product" ToRole="Technology" />
+    <NavigationProperty Name="TechnicalProductData" Relationship="Self.FkTechProdDataId" FromRole="Product" ToRole="TechnicalProductData" />
+  </EntityType>
+  <EntityType Name="ProductionProce">
+    <Key>
+      <PropertyRef Name="IdProces" />
+    </Key>
+    <Property Name="IdProces" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdPlan" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Failures" Relationship="Self.FKProductionProces" FromRole="ProductionProces" ToRole="Failure" />
+    <NavigationProperty Name="OutControl" Relationship="Self.FkOutControlProcess" FromRole="ProductionProces" ToRole="OutControl" />
+    <NavigationProperty Name="PlannedProduction" Relationship="Self.FKProductionProcesPlannedProduction" FromRole="ProductionProces" ToRole="PlannedProduction" />
+  </EntityType>
+  <EntityType Name="Realization">
+    <Key>
+      <PropertyRef Name="IdRealization" />
+    </Key>
+    <Property Name="IdRealization" Type="Int32" Nullable="false" />
+    <Property Name="IdMaintenance" Type="Int32" Nullable="false" />
+    <Property Name="IdEmployee" Type="Int32" Nullable="false" />
+    <Property Name="StartRealDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndRealDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Maintenance" Relationship="Self.FK_MaintenanceRealization" FromRole="Realization" ToRole="Maintenance" />
+  </EntityType>
+  <EntityType Name="SafetyControl">
+    <Key>
+      <PropertyRef Name="IdInspection" />
+    </Key>
+    <Property Name="IdInspection" Type="Int32" Nullable="false" />
+    <Property Name="IdSafetyEmployee" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdInspectedEmployee" Type="Int32" Nullable="false" />
+    <Property Name="SaftyControlDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SafetyControlDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employee" Relationship="Self.FkInspectedEmployee" FromRole="SafetyControl" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="SafetyTraining">
+    <Key>
+      <PropertyRef Name="IdEmployee" />
+    </Key>
+    <Property Name="IdEmployee" Type="Int32" Nullable="false" />
+    <Property Name="TrainingDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Employee" Relationship="Self.FkTrainedEmployee" FromRole="SafetyTraining" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="SemiFinished">
+    <Key>
+      <PropertyRef Name="IdSemiFinished" />
+    </Key>
+    <Property Name="IdSemiFinished" Type="Int32" Nullable="false" />
+    <Property Name="SfCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Thickness" Type="Double" Nullable="false" />
+    <Property Name="Width" Type="Double" Nullable="false" />
+    <Property Name="SfWeight" Type="Double" Nullable="false" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ChemicalComposition" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FkProductIdSF" FromRole="SemiFinished" ToRole="Product" />
+    <NavigationProperty Name="SfOrderDetails" Relationship="RoofingCompanyModel.FkSfOrderDetailSemiFinished" FromRole="SemiFinished" ToRole="SfOrderDetail" />
+  </EntityType>
+  <EntityType Name="SemiFinishedOrder">
+    <Key>
+      <PropertyRef Name="IdSfOrder" />
+    </Key>
+    <Property Name="IdSfOrder" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdSupplier" Type="Int32" Nullable="false" />
+    <Property Name="SfOrderDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SfDeliveryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Supplier" Relationship="Self.SemiFinishedOrderSupplier" FromRole="SemiFinishedOrder" ToRole="Supplier" />
+    <NavigationProperty Name="SfOrderDetails" Relationship="Self.SfOrderDetailSemiFinishedOrder" FromRole="SemiFinishedOrder" ToRole="SfOrderDetail" />
+  </EntityType>
+  <EntityType Name="SfOrderDetail">
+    <Key>
+      <PropertyRef Name="IdSfDetail" />
+    </Key>
+    <Property Name="IdSfDetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdSfOrder" Type="Int32" Nullable="false" />
+    <Property Name="IdSemiFinished" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="EntranceControls" Relationship="Self.EntranceControlSfOrderDetail" FromRole="SfOrderDetail" ToRole="EntranceControl" />
+    <NavigationProperty Name="EntranceControls1" Relationship="Self.FKSfDetail" FromRole="SfOrderDetail" ToRole="EntranceControl" />
+    <NavigationProperty Name="SemiFinishedOrder" Relationship="Self.SfOrderDetailSemiFinishedOrder" FromRole="SfOrderDetail" ToRole="SemiFinishedOrder" />
+    <NavigationProperty Name="SemiFinished" Relationship="RoofingCompanyModel.FkSfOrderDetailSemiFinished" FromRole="SfOrderDetail" ToRole="SemiFinished" />
+  </EntityType>
+  <EntityType Name="SkillsForMachine">
+    <Key>
+      <PropertyRef Name="IdSkill" />
+    </Key>
+    <Property Name="IdSkill" Type="Int32" Nullable="false" />
+    <Property Name="IdMachine" Type="Int32" />
+    <Property Name="IdPosition" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Position" Relationship="Self.FK__SkillsFor__IdPos__0B91BA14" FromRole="SkillsForMachine" ToRole="Position" />
+    <NavigationProperty Name="Machine" Relationship="RoofingCompanyModel.FK__SkillsFor__IdMac__0B91BA14" FromRole="SkillsForMachine" ToRole="Machine" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="IdStaff" />
+    </Key>
+    <Property Name="IdStaff" Type="Int32" Nullable="false" />
+    <Property Name="IdDeparment" Type="Int32" />
+    <Property Name="IdPosition" Type="Int32" />
+    <Property Name="Number" Type="Byte" />
+    <Property Name="DateFrom" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Department" Relationship="Self.FK__Staff__IdDeparme__19DFD96B" FromRole="Staff" ToRole="Department" />
+    <NavigationProperty Name="Position" Relationship="Self.FK__Staff__IdPositio__1AD3FDA4" FromRole="Staff" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="IdSupplier" />
+    </Key>
+    <Property Name="IdSupplier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdSupplierType" Type="Int32" Nullable="false" />
+    <Property Name="SupplierName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ZipCode" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Street" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HouseNumber" Type="Int32" Nullable="false" />
+    <Property Name="ApartmentNumber" Type="Int32" Nullable="false" />
+    <Property Name="NIP" Type="Double" Nullable="false" />
+    <Property Name="KRS" Type="Double" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="SemiFinishedOrders" Relationship="Self.SemiFinishedOrderSupplier" FromRole="Supplier" ToRole="SemiFinishedOrder" />
+    <NavigationProperty Name="SupplierType" Relationship="Self.SupplierSupplierType" FromRole="Supplier" ToRole="SupplierType" />
+  </EntityType>
+  <EntityType Name="SupplierType">
+    <Key>
+      <PropertyRef Name="IdSupplierType" />
+    </Key>
+    <Property Name="IdSupplierType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Suppliers" Relationship="Self.SupplierSupplierType" FromRole="SupplierType" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="TechnicalProductData">
+    <Key>
+      <PropertyRef Name="IdProduct" />
+    </Key>
+    <Property Name="IdProduct" Type="Int32" Nullable="false" />
+    <Property Name="Pattern" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="Width" Type="Double" Nullable="false" />
+    <Property Name="WeightPerMeter" Type="Double" Nullable="false" />
+    <Property Name="Lenght" Type="Double" Nullable="false" />
+    <Property Name="PricePerMeter" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FkTechProdDataId" FromRole="TechnicalProductData" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Technology">
+    <Key>
+      <PropertyRef Name="IdTechnology" />
+    </Key>
+    <Property Name="IdTechnology" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TechnologyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TimePermeter" Type="Int32" Nullable="false" />
+    <Property Name="SpeedFactor" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FkProductIdTech" FromRole="Technology" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Training">
+    <Key>
+      <PropertyRef Name="IdTraining" />
+    </Key>
+    <Property Name="IdTraining" Type="Int32" Nullable="false" />
+    <Property Name="IdEmployee" Type="Int32" />
+    <Property Name="TrainingName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="TrainingStartDate" Type="DateTime" Precision="0" />
+    <Property Name="TrainingEndDate" Type="DateTime" Precision="0" />
+    <Property Name="TrainingPrice" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__Training__IdEmpl__2739D489" FromRole="Training" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="IdUnit" />
+    </Key>
+    <Property Name="IdUnit" Type="Int32" Nullable="false" />
+    <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Parts" Relationship="Self.FK_UnitPart" FromRole="Unit" ToRole="Part" />
+  </EntityType>
+  <Association Name="FK__Absence__IdAbsen__10566F31">
+    <End Role="AbsenceType" Type="Self.AbsenceType" Multiplicity="0..1" />
+    <End Role="Absence" Type="Self.Absence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbsenceType">
+        <PropertyRef Name="IdAbsenceType" />
+      </Principal>
+      <Dependent Role="Absence">
+        <PropertyRef Name="IdAbsenceType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Absence__IdEmplo__114A936A">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Absence" Type="Self.Absence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IdEmployee" />
+      </Principal>
+      <Dependent Role="Absence">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKAccidentEmployee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Accident" Type="Self.Accident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IdEmployee" />
+      </Principal>
+      <Dependent Role="Accident">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Allocatio__IdDep__1EA48E88">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Allocation" Type="Self.Allocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="IdDepartment" />
+      </Principal>
+      <Dependent Role="Allocation">
+        <PropertyRef Name="IdDepartment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Allocatio__IdEmp__1DB06A4F">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Allocation" Type="Self.Allocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IdEmployee" />
+      </Principal>
+      <Dependent Role="Allocation">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contract__IdEmpl__07C12930">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IdEmployee" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contract__IdPosi__08B54D69">
+    <End Role="Position" Type="Self.Position" Multiplicity="1" />
+    <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="IdPosition" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="IdPosition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Invoice__IdContr__30C33EC3">
+    <End Role="Contractor" Type="Self.Contractor" Multiplicity="0..1" />
+    <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contractor">
+        <PropertyRef Name="IdContractor" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="IdContractor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrederCustomerCustomer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="OrderCustomer" Type="Self.OrderCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="IdCustomer" />
+      </Principal>
+      <Dependent Role="OrderCustomer">
+        <PropertyRef Name="IdCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Expense__IdDepar__3493CFA7">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="IdDepartment" />
+      </Principal>
+      <Dependent Role="Expense">
+        <PropertyRef Name="IdDepartment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Staff__IdDeparme__19DFD96B">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="IdDepartment" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="IdDeparment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Education__IdEdu__245D67DE">
+    <End Role="EducationLevel" Type="Self.EducationLevel" Multiplicity="0..1" />
+    <End Role="Education" Type="Self.Education" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EducationLevel">
+        <PropertyRef Name="IdEducationLevel" />
+      </Principal>
+      <Dependent Role="Education">
+        <PropertyRef Name="IdEducationLevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Education__IdEmp__236943A5">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Education" Type="Self.Education" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IdEmployee" />
+      </Principal>
+      <Dependent Role="Education">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MedicalEx__IdEmp__2A164134">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="MedicalExamination" Type="Self.MedicalExamination" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IdEmployee" />
+      </Principal>
+      <Dependent Role="MedicalExamination">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Payment__IdEmplo__151B244E">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IdEmployee" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Training__IdEmpl__2739D489">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Training" Type="Self.Training" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IdEmployee" />
+      </Principal>
+      <Dependent Role="Training">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKEnteranceControlEmployee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="EntranceControl" Type="Self.EntranceControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IdEmployee" />
+      </Principal>
+      <Dependent Role="EntranceControl">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FkFEMAnalysisEmployee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="FEMAnalysis" Type="Self.FEMAnalysi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IdEmployee" />
+      </Principal>
+      <Dependent Role="FEMAnalysis">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FkInspectedEmployee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="SafetyControl" Type="Self.SafetyControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IdEmployee" />
+      </Principal>
+      <Dependent Role="SafetyControl">
+        <PropertyRef Name="IdInspectedEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FkOutControlEmployee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="OutControl" Type="Self.OutControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IdEmployee" />
+      </Principal>
+      <Dependent Role="OutControl">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FkTrainedEmployee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="SafetyTraining" Type="Self.SafetyTraining" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IdEmployee" />
+      </Principal>
+      <Dependent Role="SafetyTraining">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderCustomerEmployee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="OrderCustomer" Type="Self.OrderCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IdEmployee" />
+      </Principal>
+      <Dependent Role="OrderCustomer">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaintenanceEmployee">
+    <End Role="Maintenance" Type="Self.Maintenance" Multiplicity="1" />
+    <End Role="EmployeePlan" Type="Self.EmployeePlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Maintenance">
+        <PropertyRef Name="IdMaintenance" />
+      </Principal>
+      <Dependent Role="EmployeePlan">
+        <PropertyRef Name="IdMaintenance" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EntranceControlSfOrderDetail">
+    <End Role="SfOrderDetail" Type="Self.SfOrderDetail" Multiplicity="1" />
+    <End Role="EntranceControl" Type="Self.EntranceControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SfOrderDetail">
+        <PropertyRef Name="IdSfDetail" />
+      </Principal>
+      <Dependent Role="EntranceControl">
+        <PropertyRef Name="IdSfDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKSfDetail">
+    <End Role="SfOrderDetail" Type="Self.SfOrderDetail" Multiplicity="1" />
+    <End Role="EntranceControl" Type="Self.EntranceControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SfOrderDetail">
+        <PropertyRef Name="IdSfDetail" />
+      </Principal>
+      <Dependent Role="EntranceControl">
+        <PropertyRef Name="IdSfDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Expense__IdInvoi__3587F3E0">
+    <End Role="Invoice" Type="Self.Invoice" Multiplicity="0..1" />
+    <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoice">
+        <PropertyRef Name="IdInvoice" />
+      </Principal>
+      <Dependent Role="Expense">
+        <PropertyRef Name="IdInvoice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FailureFailureMaintenance">
+    <End Role="Failure" Type="Self.Failure" Multiplicity="1" />
+    <End Role="FailureMaintenance" Type="Self.FailureMaintenance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Failure">
+        <PropertyRef Name="IdFailure" />
+      </Principal>
+      <Dependent Role="FailureMaintenance">
+        <PropertyRef Name="IdFailure" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKProductionProces">
+    <End Role="ProductionProces" Type="Self.ProductionProce" Multiplicity="1" />
+    <End Role="Failure" Type="Self.Failure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductionProces">
+        <PropertyRef Name="IdProces" />
+      </Principal>
+      <Dependent Role="Failure">
+        <PropertyRef Name="IdProces" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaintenanceFailureMaintenance">
+    <End Role="Maintenance" Type="Self.Maintenance" Multiplicity="1" />
+    <End Role="FailureMaintenance" Type="Self.FailureMaintenance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Maintenance">
+        <PropertyRef Name="IdMaintenance" />
+      </Principal>
+      <Dependent Role="FailureMaintenance">
+        <PropertyRef Name="IdMaintenance" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Invoice__IdInvoi__31B762FC">
+    <End Role="InvoiceType" Type="Self.InvoiceType" Multiplicity="0..1" />
+    <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InvoiceType">
+        <PropertyRef Name="IdInvoiceType" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="IdInvoiceType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MachineMaintenance">
+    <End Role="Machine" Type="Self.Machine" Multiplicity="1" />
+    <End Role="Maintenance" Type="Self.Maintenance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machine">
+        <PropertyRef Name="IdMachine" />
+      </Principal>
+      <Dependent Role="Maintenance">
+        <PropertyRef Name="IdMachine" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MachineTypeMachine">
+    <End Role="MachineType" Type="Self.MachineType" Multiplicity="1" />
+    <End Role="Machine" Type="Self.Machine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MachineType">
+        <PropertyRef Name="IdMachineType" />
+      </Principal>
+      <Dependent Role="Machine">
+        <PropertyRef Name="IdMachineType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MainDescriptionMaintenance">
+    <End Role="MaintDescription" Type="Self.MaintDescription" Multiplicity="1" />
+    <End Role="Maintenance" Type="Self.Maintenance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaintDescription">
+        <PropertyRef Name="IdMaintDesc" />
+      </Principal>
+      <Dependent Role="Maintenance">
+        <PropertyRef Name="IdMaintDesc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaintenanceRealization">
+    <End Role="Maintenance" Type="Self.Maintenance" Multiplicity="1" />
+    <End Role="Realization" Type="Self.Realization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Maintenance">
+        <PropertyRef Name="IdMaintenance" />
+      </Principal>
+      <Dependent Role="Realization">
+        <PropertyRef Name="IdMaintenance" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaintTypeMaintenance">
+    <End Role="MaintType" Type="Self.MaintType" Multiplicity="1" />
+    <End Role="Maintenance" Type="Self.Maintenance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaintType">
+        <PropertyRef Name="IdMaintenanceType" />
+      </Principal>
+      <Dependent Role="Maintenance">
+        <PropertyRef Name="IdMaintType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartMainPart">
+    <End Role="Part" Type="Self.Part" Multiplicity="1" />
+    <End Role="MaintPart" Type="Self.MaintPart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part">
+        <PropertyRef Name="IdPart" />
+      </Principal>
+      <Dependent Role="MaintPart">
+        <PropertyRef Name="IdPart" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderDetailOrderCustomer">
+    <End Role="OrderCustomer" Type="Self.OrderCustomer" Multiplicity="1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderCustomer">
+        <PropertyRef Name="IdOrderCustomer" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="IdOrderCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FkOrderDetail">
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="1" />
+    <End Role="PlannedProduction" Type="Self.PlannedProduction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderDetail">
+        <PropertyRef Name="IdDetail" />
+      </Principal>
+      <Dependent Role="PlannedProduction">
+        <PropertyRef Name="IdDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderDetailProduct">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlannedProductionOrderDetail">
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="1" />
+    <End Role="PlannedProduction" Type="Self.PlannedProduction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderDetail">
+        <PropertyRef Name="IdDetail" />
+      </Principal>
+      <Dependent Role="PlannedProduction">
+        <PropertyRef Name="IdDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FkOutControlProcess">
+    <End Role="ProductionProces" Type="Self.ProductionProce" Multiplicity="1" />
+    <End Role="OutControl" Type="Self.OutControl" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ProductionProces">
+        <PropertyRef Name="IdProces" />
+      </Principal>
+      <Dependent Role="OutControl">
+        <PropertyRef Name="IdProcess" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OutsourcingCommitmentOutsourcing">
+    <End Role="Outsourcing" Type="Self.Outsourcing" Multiplicity="1" />
+    <End Role="OutsourcingCommitment" Type="Self.OutsourcingCommitment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Outsourcing">
+        <PropertyRef Name="IdOutsourcing" />
+      </Principal>
+      <Dependent Role="OutsourcingCommitment">
+        <PropertyRef Name="IdOutsourcing" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OutsourcingOutsourcingType">
+    <End Role="OutsourcingType" Type="Self.OutsourcingType" Multiplicity="1" />
+    <End Role="Outsourcing" Type="Self.Outsourcing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OutsourcingType">
+        <PropertyRef Name="IdOutsourcingType" />
+      </Principal>
+      <Dependent Role="Outsourcing">
+        <PropertyRef Name="IdOutsourcingType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartPartRequest">
+    <End Role="Part" Type="Self.Part" Multiplicity="1" />
+    <End Role="PartRequest" Type="Self.PartRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part">
+        <PropertyRef Name="IdPart" />
+      </Principal>
+      <Dependent Role="PartRequest">
+        <PropertyRef Name="IdPart" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartRequestPartOrderDetail">
+    <End Role="Part" Type="Self.Part" Multiplicity="1" />
+    <End Role="PartOrderDetail" Type="Self.PartOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part">
+        <PropertyRef Name="IdPart" />
+      </Principal>
+      <Dependent Role="PartOrderDetail">
+        <PropertyRef Name="IdPart" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartTypePart">
+    <End Role="PartType" Type="Self.PartType" Multiplicity="1" />
+    <End Role="Part" Type="Self.Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartType">
+        <PropertyRef Name="IdPartType" />
+      </Principal>
+      <Dependent Role="Part">
+        <PropertyRef Name="IdPartType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnitPart">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Part" Type="Self.Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="IdUnit" />
+      </Principal>
+      <Dependent Role="Part">
+        <PropertyRef Name="IdUnit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartOrderPartOrderDetail">
+    <End Role="PartOrder" Type="Self.PartOrder" Multiplicity="1" />
+    <End Role="PartOrderDetail" Type="Self.PartOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartOrder">
+        <PropertyRef Name="IdPartOrder" />
+      </Principal>
+      <Dependent Role="PartOrderDetail">
+        <PropertyRef Name="IdPartOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartRequestPartOrderRequest">
+    <End Role="PartRequest" Type="Self.PartRequest" Multiplicity="1" />
+    <End Role="PartOrderRequest" Type="Self.PartOrderRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartRequest">
+        <PropertyRef Name="IdPartRequest" />
+      </Principal>
+      <Dependent Role="PartOrderRequest">
+        <PropertyRef Name="IdPartRequest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKPlannedProductionEmployeeDetailsPlannedProduction">
+    <End Role="PlannedProduction" Type="Self.PlannedProduction" Multiplicity="1" />
+    <End Role="PlannedProductionEmployeeDetails" Type="Self.PlannedProductionEmployeeDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PlannedProduction">
+        <PropertyRef Name="IdPlan" />
+      </Principal>
+      <Dependent Role="PlannedProductionEmployeeDetails">
+        <PropertyRef Name="IdProces" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKProductionProcesPlannedProduction">
+    <End Role="PlannedProduction" Type="Self.PlannedProduction" Multiplicity="1" />
+    <End Role="ProductionProces" Type="Self.ProductionProce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PlannedProduction">
+        <PropertyRef Name="IdPlan" />
+      </Principal>
+      <Dependent Role="ProductionProces">
+        <PropertyRef Name="IdPlan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SkillsFor__IdPos__0B91BA14">
+    <End Role="Position" Type="Self.Position" Multiplicity="1" />
+    <End Role="SkillsForMachine" Type="Self.SkillsForMachine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="IdPosition" />
+      </Principal>
+      <Dependent Role="SkillsForMachine">
+        <PropertyRef Name="IdPosition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Staff__IdPositio__1AD3FDA4">
+    <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="IdPosition" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="IdPosition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FkProductIdSF">
+    <End Role="SemiFinished" Type="Self.SemiFinished" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SemiFinished">
+        <PropertyRef Name="IdSemiFinished" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="IdSemiFinished" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FkProductIdTech">
+    <End Role="Technology" Type="Self.Technology" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Technology">
+        <PropertyRef Name="IdTechnology" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="IdTechnology" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FkTechProdDataId">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="TechnicalProductData" Type="Self.TechnicalProductData" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="TechnicalProductData">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SemiFinishedOrderSupplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="SemiFinishedOrder" Type="Self.SemiFinishedOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="IdSupplier" />
+      </Principal>
+      <Dependent Role="SemiFinishedOrder">
+        <PropertyRef Name="IdSupplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SfOrderDetailSemiFinishedOrder">
+    <End Role="SemiFinishedOrder" Type="Self.SemiFinishedOrder" Multiplicity="1" />
+    <End Role="SfOrderDetail" Type="Self.SfOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SemiFinishedOrder">
+        <PropertyRef Name="IdSfOrder" />
+      </Principal>
+      <Dependent Role="SfOrderDetail">
+        <PropertyRef Name="IdSfOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SupplierSupplierType">
+    <End Role="SupplierType" Type="Self.SupplierType" Multiplicity="1" />
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupplierType">
+        <PropertyRef Name="IdSupplierType" />
+      </Principal>
+      <Dependent Role="Supplier">
+        <PropertyRef Name="IdSupplierType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RoofingCompanyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Absences" EntityType="Self.Absence" />
+    <EntitySet Name="AbsenceTypes" EntityType="Self.AbsenceType" />
+    <EntitySet Name="Accidents" EntityType="Self.Accident" />
+    <EntitySet Name="Allocations" EntityType="Self.Allocation" />
+    <EntitySet Name="Contracts" EntityType="Self.Contract" />
+    <EntitySet Name="Contractors" EntityType="Self.Contractor" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Departments" EntityType="Self.Department" />
+    <EntitySet Name="Educations" EntityType="Self.Education" />
+    <EntitySet Name="EducationLevels" EntityType="Self.EducationLevel" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="EmployeePlans" EntityType="Self.EmployeePlan" />
+    <EntitySet Name="EntranceControls" EntityType="Self.EntranceControl" />
+    <EntitySet Name="Expenses" EntityType="Self.Expense" />
+    <EntitySet Name="Failures" EntityType="Self.Failure" />
+    <EntitySet Name="FailureMaintenances" EntityType="Self.FailureMaintenance" />
+    <EntitySet Name="FEMAnalysis" EntityType="Self.FEMAnalysi" />
+    <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+    <EntitySet Name="InvoiceTypes" EntityType="Self.InvoiceType" />
+    <EntitySet Name="Machines" EntityType="Self.Machine" />
+    <EntitySet Name="MachineTypes" EntityType="Self.MachineType" />
+    <EntitySet Name="MaintDescriptions" EntityType="Self.MaintDescription" />
+    <EntitySet Name="Maintenances" EntityType="Self.Maintenance" />
+    <EntitySet Name="MaintParts" EntityType="Self.MaintPart" />
+    <EntitySet Name="MaintTypes" EntityType="Self.MaintType" />
+    <EntitySet Name="MedicalExaminations" EntityType="Self.MedicalExamination" />
+    <EntitySet Name="OrderCustomers" EntityType="Self.OrderCustomer" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+    <EntitySet Name="OutControls" EntityType="Self.OutControl" />
+    <EntitySet Name="Outsourcings" EntityType="Self.Outsourcing" />
+    <EntitySet Name="OutsourcingCommitments" EntityType="Self.OutsourcingCommitment" />
+    <EntitySet Name="OutsourcingTypes" EntityType="Self.OutsourcingType" />
+    <EntitySet Name="Parts" EntityType="Self.Part" />
+    <EntitySet Name="PartOrders" EntityType="Self.PartOrder" />
+    <EntitySet Name="PartOrderDetails" EntityType="Self.PartOrderDetail" />
+    <EntitySet Name="PartOrderRequests" EntityType="Self.PartOrderRequest" />
+    <EntitySet Name="PartRequests" EntityType="Self.PartRequest" />
+    <EntitySet Name="PartTypes" EntityType="Self.PartType" />
+    <EntitySet Name="Payments" EntityType="Self.Payment" />
+    <EntitySet Name="PlannedProductions" EntityType="Self.PlannedProduction" />
+    <EntitySet Name="PlannedProductionEmployeeDetails" EntityType="Self.PlannedProductionEmployeeDetail" />
+    <EntitySet Name="Positions" EntityType="Self.Position" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="ProductionProces" EntityType="Self.ProductionProce" />
+    <EntitySet Name="Realizations" EntityType="Self.Realization" />
+    <EntitySet Name="SafetyControls" EntityType="Self.SafetyControl" />
+    <EntitySet Name="SafetyTrainings" EntityType="Self.SafetyTraining" />
+    <EntitySet Name="SemiFinisheds" EntityType="Self.SemiFinished" />
+    <EntitySet Name="SemiFinishedOrders" EntityType="Self.SemiFinishedOrder" />
+    <EntitySet Name="SfOrderDetails" EntityType="Self.SfOrderDetail" />
+    <EntitySet Name="SkillsForMachines" EntityType="Self.SkillsForMachine" />
+    <EntitySet Name="Staffs" EntityType="Self.Staff" />
+    <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+    <EntitySet Name="SupplierTypes" EntityType="Self.SupplierType" />
+    <EntitySet Name="TechnicalProductDatas" EntityType="Self.TechnicalProductData" />
+    <EntitySet Name="Technologies" EntityType="Self.Technology" />
+    <EntitySet Name="Trainings" EntityType="Self.Training" />
+    <EntitySet Name="Units" EntityType="Self.Unit" />
+    <AssociationSet Name="FK__Absence__IdAbsen__10566F31" Association="Self.FK__Absence__IdAbsen__10566F31">
+      <End Role="AbsenceType" EntitySet="AbsenceTypes" />
+      <End Role="Absence" EntitySet="Absences" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Absence__IdEmplo__114A936A" Association="Self.FK__Absence__IdEmplo__114A936A">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Absence" EntitySet="Absences" />
+    </AssociationSet>
+    <AssociationSet Name="FKAccidentEmployee" Association="Self.FKAccidentEmployee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Accident" EntitySet="Accidents" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Allocatio__IdDep__1EA48E88" Association="Self.FK__Allocatio__IdDep__1EA48E88">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Allocation" EntitySet="Allocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Allocatio__IdEmp__1DB06A4F" Association="Self.FK__Allocatio__IdEmp__1DB06A4F">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Allocation" EntitySet="Allocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contract__IdEmpl__07C12930" Association="Self.FK__Contract__IdEmpl__07C12930">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Contract" EntitySet="Contracts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contract__IdPosi__08B54D69" Association="Self.FK__Contract__IdPosi__08B54D69">
+      <End Role="Position" EntitySet="Positions" />
+      <End Role="Contract" EntitySet="Contracts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Invoice__IdContr__30C33EC3" Association="Self.FK__Invoice__IdContr__30C33EC3">
+      <End Role="Contractor" EntitySet="Contractors" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="OrederCustomerCustomer" Association="Self.OrederCustomerCustomer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="OrderCustomer" EntitySet="OrderCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Expense__IdDepar__3493CFA7" Association="Self.FK__Expense__IdDepar__3493CFA7">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Expense" EntitySet="Expenses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Staff__IdDeparme__19DFD96B" Association="Self.FK__Staff__IdDeparme__19DFD96B">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Staff" EntitySet="Staffs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Education__IdEdu__245D67DE" Association="Self.FK__Education__IdEdu__245D67DE">
+      <End Role="EducationLevel" EntitySet="EducationLevels" />
+      <End Role="Education" EntitySet="Educations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Education__IdEmp__236943A5" Association="Self.FK__Education__IdEmp__236943A5">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Education" EntitySet="Educations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MedicalEx__IdEmp__2A164134" Association="Self.FK__MedicalEx__IdEmp__2A164134">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="MedicalExamination" EntitySet="MedicalExaminations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payment__IdEmplo__151B244E" Association="Self.FK__Payment__IdEmplo__151B244E">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Training__IdEmpl__2739D489" Association="Self.FK__Training__IdEmpl__2739D489">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Training" EntitySet="Trainings" />
+    </AssociationSet>
+    <AssociationSet Name="FKEnteranceControlEmployee" Association="Self.FKEnteranceControlEmployee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EntranceControl" EntitySet="EntranceControls" />
+    </AssociationSet>
+    <AssociationSet Name="FkFEMAnalysisEmployee" Association="Self.FkFEMAnalysisEmployee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="FEMAnalysis" EntitySet="FEMAnalysis" />
+    </AssociationSet>
+    <AssociationSet Name="FkInspectedEmployee" Association="Self.FkInspectedEmployee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="SafetyControl" EntitySet="SafetyControls" />
+    </AssociationSet>
+    <AssociationSet Name="FkOutControlEmployee" Association="Self.FkOutControlEmployee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="OutControl" EntitySet="OutControls" />
+    </AssociationSet>
+    <AssociationSet Name="FkTrainedEmployee" Association="Self.FkTrainedEmployee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="SafetyTraining" EntitySet="SafetyTrainings" />
+    </AssociationSet>
+    <AssociationSet Name="OrderCustomerEmployee" Association="Self.OrderCustomerEmployee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="OrderCustomer" EntitySet="OrderCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaintenanceEmployee" Association="Self.FK_MaintenanceEmployee">
+      <End Role="Maintenance" EntitySet="Maintenances" />
+      <End Role="EmployeePlan" EntitySet="EmployeePlans" />
+    </AssociationSet>
+    <AssociationSet Name="EntranceControlSfOrderDetail" Association="Self.EntranceControlSfOrderDetail">
+      <End Role="SfOrderDetail" EntitySet="SfOrderDetails" />
+      <End Role="EntranceControl" EntitySet="EntranceControls" />
+    </AssociationSet>
+    <AssociationSet Name="FKSfDetail" Association="Self.FKSfDetail">
+      <End Role="SfOrderDetail" EntitySet="SfOrderDetails" />
+      <End Role="EntranceControl" EntitySet="EntranceControls" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Expense__IdInvoi__3587F3E0" Association="Self.FK__Expense__IdInvoi__3587F3E0">
+      <End Role="Invoice" EntitySet="Invoices" />
+      <End Role="Expense" EntitySet="Expenses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FailureFailureMaintenance" Association="Self.FK_FailureFailureMaintenance">
+      <End Role="Failure" EntitySet="Failures" />
+      <End Role="FailureMaintenance" EntitySet="FailureMaintenances" />
+    </AssociationSet>
+    <AssociationSet Name="FKProductionProces" Association="Self.FKProductionProces">
+      <End Role="ProductionProces" EntitySet="ProductionProces" />
+      <End Role="Failure" EntitySet="Failures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaintenanceFailureMaintenance" Association="Self.FK_MaintenanceFailureMaintenance">
+      <End Role="Maintenance" EntitySet="Maintenances" />
+      <End Role="FailureMaintenance" EntitySet="FailureMaintenances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Invoice__IdInvoi__31B762FC" Association="Self.FK__Invoice__IdInvoi__31B762FC">
+      <End Role="InvoiceType" EntitySet="InvoiceTypes" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MachineMaintenance" Association="Self.FK_MachineMaintenance">
+      <End Role="Machine" EntitySet="Machines" />
+      <End Role="Maintenance" EntitySet="Maintenances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MachineTypeMachine" Association="Self.FK_MachineTypeMachine">
+      <End Role="MachineType" EntitySet="MachineTypes" />
+      <End Role="Machine" EntitySet="Machines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MainDescriptionMaintenance" Association="Self.FK_MainDescriptionMaintenance">
+      <End Role="MaintDescription" EntitySet="MaintDescriptions" />
+      <End Role="Maintenance" EntitySet="Maintenances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaintenanceRealization" Association="Self.FK_MaintenanceRealization">
+      <End Role="Maintenance" EntitySet="Maintenances" />
+      <End Role="Realization" EntitySet="Realizations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaintTypeMaintenance" Association="Self.FK_MaintTypeMaintenance">
+      <End Role="MaintType" EntitySet="MaintTypes" />
+      <End Role="Maintenance" EntitySet="Maintenances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartMainPart" Association="Self.FK_PartMainPart">
+      <End Role="Part" EntitySet="Parts" />
+      <End Role="MaintPart" EntitySet="MaintParts" />
+    </AssociationSet>
+    <AssociationSet Name="OrderDetailOrderCustomer" Association="Self.OrderDetailOrderCustomer">
+      <End Role="OrderCustomer" EntitySet="OrderCustomers" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FkOrderDetail" Association="Self.FkOrderDetail">
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+      <End Role="PlannedProduction" EntitySet="PlannedProductions" />
+    </AssociationSet>
+    <AssociationSet Name="OrderDetailProduct" Association="Self.OrderDetailProduct">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="PlannedProductionOrderDetail" Association="Self.PlannedProductionOrderDetail">
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+      <End Role="PlannedProduction" EntitySet="PlannedProductions" />
+    </AssociationSet>
+    <AssociationSet Name="FkOutControlProcess" Association="Self.FkOutControlProcess">
+      <End Role="ProductionProces" EntitySet="ProductionProces" />
+      <End Role="OutControl" EntitySet="OutControls" />
+    </AssociationSet>
+    <AssociationSet Name="OutsourcingCommitmentOutsourcing" Association="Self.OutsourcingCommitmentOutsourcing">
+      <End Role="Outsourcing" EntitySet="Outsourcings" />
+      <End Role="OutsourcingCommitment" EntitySet="OutsourcingCommitments" />
+    </AssociationSet>
+    <AssociationSet Name="OutsourcingOutsourcingType" Association="Self.OutsourcingOutsourcingType">
+      <End Role="OutsourcingType" EntitySet="OutsourcingTypes" />
+      <End Role="Outsourcing" EntitySet="Outsourcings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartPartRequest" Association="Self.FK_PartPartRequest">
+      <End Role="Part" EntitySet="Parts" />
+      <End Role="PartRequest" EntitySet="PartRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartRequestPartOrderDetail" Association="Self.FK_PartRequestPartOrderDetail">
+      <End Role="Part" EntitySet="Parts" />
+      <End Role="PartOrderDetail" EntitySet="PartOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartTypePart" Association="Self.FK_PartTypePart">
+      <End Role="PartType" EntitySet="PartTypes" />
+      <End Role="Part" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnitPart" Association="Self.FK_UnitPart">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Part" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartOrderPartOrderDetail" Association="Self.FK_PartOrderPartOrderDetail">
+      <End Role="PartOrder" EntitySet="PartOrders" />
+      <End Role="PartOrderDetail" EntitySet="PartOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartRequestPartOrderRequest" Association="Self.FK_PartRequestPartOrderRequest">
+      <End Role="PartRequest" EntitySet="PartRequests" />
+      <End Role="PartOrderRequest" EntitySet="PartOrderRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FKPlannedProductionEmployeeDetailsPlannedProduction" Association="Self.FKPlannedProductionEmployeeDetailsPlannedProduction">
+      <End Role="PlannedProduction" EntitySet="PlannedProductions" />
+      <End Role="PlannedProductionEmployeeDetails" EntitySet="PlannedProductionEmployeeDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FKProductionProcesPlannedProduction" Association="Self.FKProductionProcesPlannedProduction">
+      <End Role="PlannedProduction" EntitySet="PlannedProductions" />
+      <End Role="ProductionProces" EntitySet="ProductionProces" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SkillsFor__IdPos__0B91BA14" Association="Self.FK__SkillsFor__IdPos__0B91BA14">
+      <End Role="Position" EntitySet="Positions" />
+      <End Role="SkillsForMachine" EntitySet="SkillsForMachines" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Staff__IdPositio__1AD3FDA4" Association="Self.FK__Staff__IdPositio__1AD3FDA4">
+      <End Role="Position" EntitySet="Positions" />
+      <End Role="Staff" EntitySet="Staffs" />
+    </AssociationSet>
+    <AssociationSet Name="FkProductIdSF" Association="Self.FkProductIdSF">
+      <End Role="SemiFinished" EntitySet="SemiFinisheds" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FkProductIdTech" Association="Self.FkProductIdTech">
+      <End Role="Technology" EntitySet="Technologies" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FkTechProdDataId" Association="Self.FkTechProdDataId">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="TechnicalProductData" EntitySet="TechnicalProductDatas" />
+    </AssociationSet>
+    <AssociationSet Name="SemiFinishedOrderSupplier" Association="Self.SemiFinishedOrderSupplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="SemiFinishedOrder" EntitySet="SemiFinishedOrders" />
+    </AssociationSet>
+    <AssociationSet Name="SfOrderDetailSemiFinishedOrder" Association="Self.SfOrderDetailSemiFinishedOrder">
+      <End Role="SemiFinishedOrder" EntitySet="SemiFinishedOrders" />
+      <End Role="SfOrderDetail" EntitySet="SfOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="SupplierSupplierType" Association="Self.SupplierSupplierType">
+      <End Role="SupplierType" EntitySet="SupplierTypes" />
+      <End Role="Supplier" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FKPlannedProductionEmployeeDetailsAllocation" Association="RoofingCompanyModel.FKPlannedProductionEmployeeDetailsAllocation">
+      <End Role="Allocation" EntitySet="Allocations" />
+      <End Role="PlannedProductionEmployeeDetail" EntitySet="PlannedProductionEmployeeDetails" />
+    </AssociationSet>
+    <EntitySet Name="EntranceControlViews" EntityType="RoofingCompanyModel.EntranceControlView" />
+    <EntitySet Name="vCompanies" EntityType="RoofingCompanyModel.vCompany" />
+    <EntitySet Name="vCustomerWithOrders" EntityType="RoofingCompanyModel.vCustomerWithOrder" />
+    <EntitySet Name="ViewDailySfDeliveries" EntityType="RoofingCompanyModel.ViewDailySfDelivery" />
+    <EntitySet Name="ViewOshTrainings" EntityType="RoofingCompanyModel.ViewOshTraining" />
+    <EntitySet Name="vIndividualCustomers" EntityType="RoofingCompanyModel.vIndividualCustomer" />
+    <EntitySet Name="vInputMagazines" EntityType="RoofingCompanyModel.vInputMagazine" />
+    <EntitySet Name="vOutputMagazines" EntityType="RoofingCompanyModel.vOutputMagazine" />
+    <EntitySet Name="vOutsourcingWithTypes" EntityType="RoofingCompanyModel.vOutsourcingWithType" />
+    <EntitySet Name="vSupplierParts" EntityType="RoofingCompanyModel.vSupplierPart" />
+    <EntitySet Name="vSupplierSemis" EntityType="RoofingCompanyModel.vSupplierSemi" />
+    <AssociationSet Name="FK__SkillsFor__IdMac__0B91BA14" Association="RoofingCompanyModel.FK__SkillsFor__IdMac__0B91BA14">
+      <End Role="Machine" EntitySet="Machines" />
+      <End Role="SkillsForMachine" EntitySet="SkillsForMachines" />
+    </AssociationSet>
+    <AssociationSet Name="FkSfOrderDetailSemiFinished" Association="RoofingCompanyModel.FkSfOrderDetailSemiFinished">
+      <End Role="SemiFinished" EntitySet="SemiFinisheds" />
+      <End Role="SfOrderDetail" EntitySet="SfOrderDetails" />
+    </AssociationSet>
+    <EntitySet Name="vUnhandledOrderDetails" EntityType="RoofingCompanyModel.vUnhandledOrderDetails" />
+    <AssociationSet Name="FkMachine" Association="RoofingCompanyModel.FkMachine">
+      <End Role="Maintenance" EntitySet="Maintenances" />
+      <End Role="PlannedProduction" EntitySet="PlannedProductions" />
+    </AssociationSet>
+    <EntitySet Name="vMachinesFromMaintenances" EntityType="RoofingCompanyModel.vMachinesFromMaintenances" />
+  </EntityContainer>
+  <Association Name="FKPlannedProductionEmployeeDetailsAllocation">
+    <End Type="RoofingCompanyModel.Allocation" Role="Allocation" Multiplicity="1" />
+    <End Type="RoofingCompanyModel.PlannedProductionEmployeeDetail" Role="PlannedProductionEmployeeDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Allocation">
+        <PropertyRef Name="IdAllocation" />
+      </Principal>
+      <Dependent Role="PlannedProductionEmployeeDetail">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="EntranceControlView">
+    <Key>
+      <PropertyRef Name="IdSfDetail" />
+    </Key>
+    <Property Name="IdSfDetail" Type="Int32" Nullable="false" />
+    <Property Name="SfCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Thickness" Type="Double" />
+    <Property Name="Width" Type="Double" />
+    <Property Name="SfWeight" Type="Double" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ChemicalComposition" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vCompany">
+    <Key>
+      <PropertyRef Name="IdCustomer" />
+      <PropertyRef Name="CustomerName" />
+      <PropertyRef Name="PhoneNumber" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="ZipCode" />
+      <PropertyRef Name="Street" />
+      <PropertyRef Name="HouseNumber" />
+      <PropertyRef Name="ApartmentNumber" />
+      <PropertyRef Name="Description" />
+    </Key>
+    <Property Name="IdCustomer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="Street" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="HouseNumber" Type="Int32" Nullable="false" />
+    <Property Name="ApartmentNumber" Type="Int32" Nullable="false" />
+    <Property Name="Pesel" Type="Double" />
+    <Property Name="NIP" Type="Double" />
+    <Property Name="KRS" Type="Double" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vCustomerWithOrder">
+    <Key>
+      <PropertyRef Name="CustomerName" />
+      <PropertyRef Name="IdOrderCustomer" />
+      <PropertyRef Name="OrderDate" />
+      <PropertyRef Name="Cost" />
+    </Key>
+    <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IdOrderCustomer" Type="Int32" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Cost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="ViewDailySfDelivery">
+    <Key>
+      <PropertyRef Name="Delivery" />
+      <PropertyRef Name="SupplierName" />
+      <PropertyRef Name="SfCode" />
+      <PropertyRef Name="Quantity" />
+    </Key>
+    <Property Name="Delivery" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SupplierName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SfCode" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ViewOshTraining">
+    <Key>
+      <PropertyRef Name="IdEmployee" />
+      <PropertyRef Name="TrainingDate" />
+    </Key>
+    <Property Name="IdEmployee" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="TrainingDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ValidityOfOshTraining" Type="Byte" />
+  </EntityType>
+  <EntityType Name="vIndividualCustomer">
+    <Key>
+      <PropertyRef Name="IdCustomer" />
+      <PropertyRef Name="CustomerName" />
+      <PropertyRef Name="PhoneNumber" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="ZipCode" />
+      <PropertyRef Name="Street" />
+      <PropertyRef Name="HouseNumber" />
+      <PropertyRef Name="ApartmentNumber" />
+      <PropertyRef Name="Description" />
+    </Key>
+    <Property Name="IdCustomer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="Street" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="HouseNumber" Type="Int32" Nullable="false" />
+    <Property Name="ApartmentNumber" Type="Int32" Nullable="false" />
+    <Property Name="Pesel" Type="Double" />
+    <Property Name="NIP" Type="Double" />
+    <Property Name="KRS" Type="Double" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vInputMagazine">
+    <Key>
+      <PropertyRef Name="SfCode" />
+      <PropertyRef Name="Quantity" />
+      <PropertyRef Name="ControlDate" />
+    </Key>
+    <Property Name="SfCode" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="ControlDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="vOutputMagazine">
+    <Key>
+      <PropertyRef Name="Quantity" />
+      <PropertyRef Name="ControlDate" />
+    </Key>
+    <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="ControlDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="vOutsourcingWithType">
+    <Key>
+      <PropertyRef Name="IdOutsourcing" />
+      <PropertyRef Name="OutsourcingType" />
+      <PropertyRef Name="CompanyName" />
+      <PropertyRef Name="PhoneNumber" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="ZipCode" />
+      <PropertyRef Name="Street" />
+      <PropertyRef Name="HouseNumber" />
+      <PropertyRef Name="ApartmentNumber" />
+      <PropertyRef Name="NIP" />
+      <PropertyRef Name="KRS" />
+      <PropertyRef Name="Description" />
+    </Key>
+    <Property Name="IdOutsourcing" Type="Int32" Nullable="false" />
+    <Property Name="OutsourcingType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="Street" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="HouseNumber" Type="Int32" Nullable="false" />
+    <Property Name="ApartmentNumber" Type="Int32" Nullable="false" />
+    <Property Name="NIP" Type="Double" Nullable="false" />
+    <Property Name="KRS" Type="Double" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vSupplierPart">
+    <Key>
+      <PropertyRef Name="IdSupplier" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="SupplierName" />
+      <PropertyRef Name="PhoneNumber" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="ZipCode" />
+      <PropertyRef Name="Street" />
+      <PropertyRef Name="HouseNumber" />
+      <PropertyRef Name="ApartmentNumber" />
+      <PropertyRef Name="NIP" />
+      <PropertyRef Name="KRS" />
+      <PropertyRef Name="Description" />
+    </Key>
+    <Property Name="IdSupplier" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="Street" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="HouseNumber" Type="Int32" Nullable="false" />
+    <Property Name="ApartmentNumber" Type="Int32" Nullable="false" />
+    <Property Name="NIP" Type="Double" Nullable="false" />
+    <Property Name="KRS" Type="Double" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vSupplierSemi">
+    <Key>
+      <PropertyRef Name="IdSupplier" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="SupplierName" />
+      <PropertyRef Name="PhoneNumber" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="ZipCode" />
+      <PropertyRef Name="Street" />
+      <PropertyRef Name="HouseNumber" />
+      <PropertyRef Name="ApartmentNumber" />
+      <PropertyRef Name="NIP" />
+      <PropertyRef Name="KRS" />
+      <PropertyRef Name="Description" />
+    </Key>
+    <Property Name="IdSupplier" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="Street" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="HouseNumber" Type="Int32" Nullable="false" />
+    <Property Name="ApartmentNumber" Type="Int32" Nullable="false" />
+    <Property Name="NIP" Type="Double" Nullable="false" />
+    <Property Name="KRS" Type="Double" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__SkillsFor__IdMac__0B91BA14">
+    <End Type="RoofingCompanyModel.Machine" Role="Machine" Multiplicity="0..1" />
+    <End Type="RoofingCompanyModel.SkillsForMachine" Role="SkillsForMachine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machine">
+        <PropertyRef Name="IdMachine" />
+      </Principal>
+      <Dependent Role="SkillsForMachine">
+        <PropertyRef Name="IdMachine" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FkSfOrderDetailSemiFinished">
+    <End Type="RoofingCompanyModel.SemiFinished" Role="SemiFinished" Multiplicity="1" />
+    <End Type="RoofingCompanyModel.SfOrderDetail" Role="SfOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SemiFinished">
+        <PropertyRef Name="IdSemiFinished" />
+      </Principal>
+      <Dependent Role="SfOrderDetail">
+        <PropertyRef Name="IdSemiFinished" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="vUnhandledOrderDetails">
+    <Key>
+      <PropertyRef Name="IdDetail" />
+      <PropertyRef Name="Quantity" />
+    </Key>
+    <Property Name="IdDetail" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FkMachine">
+    <End Type="RoofingCompanyModel.Maintenance" Role="Maintenance" Multiplicity="1" />
+    <End Type="RoofingCompanyModel.PlannedProduction" Role="PlannedProduction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Maintenance">
+        <PropertyRef Name="IdMaintenance" />
+      </Principal>
+      <Dependent Role="PlannedProduction">
+        <PropertyRef Name="IdMachine" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="vMachinesFromMaintenances">
+    <Key>
+      <PropertyRef Name="IdMaintenance" />
+      <PropertyRef Name="IdMachine" />
+    </Key>
+    <Property Name="IdMaintenance" Type="Int32" Nullable="false" />
+    <Property Name="IdMachine" Type="Int32" Nullable="false" />
+    <Property Name="MachineName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

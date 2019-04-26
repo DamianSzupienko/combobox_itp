@@ -1,0 +1,691 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BD1A8680-56AA-49CA-80F9-3A02110792F8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>KWZP2019</RootNamespace>
+    <AssemblyName>KWZP2019</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Absence.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Development.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Development.Designer.cs">
+      <DependentUpon>Development.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntranceControlView.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HR\Absences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR\Absences.Designer.cs">
+      <DependentUpon>Absences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbsenceType.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Accident.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HR\AddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR\AddEmployee.Designer.cs">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Finances\AddInvoices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finances\AddInvoices.Designer.cs">
+      <DependentUpon>AddInvoices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HR\AddTraining.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR\AddTraining.Designer.cs">
+      <DependentUpon>AddTraining.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Finances\AllCosts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finances\AllCosts.Designer.cs">
+      <DependentUpon>AllCosts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProduct.Designer.cs">
+      <DependentUpon>AddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Allocation.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contract.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contractor.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Finances\Costs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finances\Costs.Designer.cs">
+      <DependentUpon>Costs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Education.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EducationLevel.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HR\EmployeeDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR\EmployeeDetails.Designer.cs">
+      <DependentUpon>EmployeeDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeePlan.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntranceControl.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntranceControlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntranceControlForm.Designer.cs">
+      <DependentUpon>EntranceControlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HR\Examination.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR\Examination.Designer.cs">
+      <DependentUpon>Examination.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expense.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Failure.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FailureMaintenance.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FEMAnalysi.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Finances\Finances.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finances\Finances.Designer.cs">
+      <DependentUpon>Finances.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinancesAndHR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinancesAndHR.Designer.cs">
+      <DependentUpon>FinancesAndHR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HR\HR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR\HR.Designer.cs">
+      <DependentUpon>HR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceType.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Machine.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MachinesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MachinesForm.Designer.cs">
+      <DependentUpon>MachinesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MachineType.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaintDescription.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaintenanceCalendarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintenanceCalendarForm.Designer.cs">
+      <DependentUpon>MaintenanceCalendarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintenanceEmployeeCalendarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintenanceEmployeeCalendarForm.Designer.cs">
+      <DependentUpon>MaintenanceEmployeeCalendarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintenanceManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintenanceManagement.Designer.cs">
+      <DependentUpon>MaintenanceManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintPart.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaintType.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalExamination.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewMaintenanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewMaintenanceForm.Designer.cs">
+      <DependentUpon>NewMaintenanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Production\NewProductionPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\NewProductionPlan.Designer.cs">
+      <DependentUpon>NewProductionPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderCustomer.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetail.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OshTrainingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OshTrainingForm.Designer.cs">
+      <DependentUpon>OshTrainingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OSHControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OSHControl.Designer.cs">
+      <DependentUpon>OSHControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutControl.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutControlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OutControlForm.Designer.cs">
+      <DependentUpon>OutControlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Outsourcing.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutsourcingCommitment.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutsourcingType.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Part.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartOrder.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartOrderDetail.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartOrderRequest.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartRequest.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PartsForm.Designer.cs">
+      <DependentUpon>PartsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PartType.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlannedProduction.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlannedProductionEmployeeDetail.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Position.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Production\Production.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\Production.Designer.cs">
+      <DependentUpon>Production.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Production\ProductionFailures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\ProductionFailures.Designer.cs">
+      <DependentUpon>ProductionFailures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductionHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductionHistory.Designer.cs">
+      <DependentUpon>ProductionHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Production\ProductionPlanned.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\ProductionPlanned.Designer.cs">
+      <DependentUpon>ProductionPlanned.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductionProce.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Finances\Profits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finances\Profits.Designer.cs">
+      <DependentUpon>Profits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Production\ProductionProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\ProductionProcess.Designer.cs">
+      <DependentUpon>ProductionProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Production\ProductionProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\ProductionProducts.Designer.cs">
+      <DependentUpon>ProductionProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductionSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductionSelection.Designer.cs">
+      <DependentUpon>ProductionSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Production\ProductionTechnology.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\ProductionTechnology.Designer.cs">
+      <DependentUpon>ProductionTechnology.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QualityControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QualityControl.Designer.cs">
+      <DependentUpon>QualityControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Realization.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoofingCompanyModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RoofingCompanyModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoofingCompanyModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoofingCompanyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RoofingCompanyModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SafetyControl.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SafetyTraining.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Finances\Salaries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finances\Salaries.Designer.cs">
+      <DependentUpon>Salaries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Finances\Salariessummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finances\Salariessummary.Designer.cs">
+      <DependentUpon>Salariessummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesDepartment.Designer.cs">
+      <DependentUpon>SalesDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SemiFinished.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SemiFinishedOrder.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SfOrderDetail.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillsForMachine.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Staff.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierType.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TechnicalProductData.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Technology.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Training.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Unit.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vCompany.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vCustomerWithOrder.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewDailySfDelivery.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewOshTraining.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vIndividualCustomer.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vInputMagazine.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vMachinesFromMaintenances.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vOutputMagazine.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vOutsourcingWithType.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vSupplierPart.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vSupplierSemi.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vUnhandledOrderDetails.cs">
+      <DependentUpon>RoofingCompanyModel.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="HR\Absences.resx">
+      <DependentUpon>Absences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finances\AddInvoices.resx">
+      <DependentUpon>AddInvoices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR\AddEmployee.resx">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR\AddTraining.resx">
+      <DependentUpon>AddTraining.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finances\AllCosts.resx">
+      <DependentUpon>AllCosts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finances\Costs.resx">
+      <DependentUpon>Costs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR\EmployeeDetails.resx">
+      <DependentUpon>EmployeeDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntranceControlForm.resx">
+      <DependentUpon>EntranceControlForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR\Examination.resx">
+      <DependentUpon>Examination.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finances\Finances.resx">
+      <DependentUpon>Finances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinancesAndHR.resx">
+      <DependentUpon>FinancesAndHR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MachinesForm.resx">
+      <DependentUpon>MachinesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintenanceCalendarForm.resx">
+      <DependentUpon>MaintenanceCalendarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintenanceEmployeeCalendarForm.resx">
+      <DependentUpon>MaintenanceEmployeeCalendarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewMaintenanceForm.resx">
+      <DependentUpon>NewMaintenanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OshTrainingForm.resx">
+      <DependentUpon>OshTrainingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\NewProductionPlan.resx">
+      <DependentUpon>NewProductionPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR\HR.resx">
+      <DependentUpon>HR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OSHControl.resx">
+      <DependentUpon>OSHControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PartsForm.resx">
+      <DependentUpon>PartsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\Production.resx">
+      <DependentUpon>Production.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\ProductionFailures.resx">
+      <DependentUpon>ProductionFailures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductionHistory.resx">
+      <DependentUpon>ProductionHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\ProductionPlanned.resx">
+      <DependentUpon>ProductionPlanned.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\ProductionProcess.resx">
+      <DependentUpon>ProductionProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\ProductionProducts.resx">
+      <DependentUpon>ProductionProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductionSelection.resx">
+      <DependentUpon>ProductionSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\ProductionTechnology.resx">
+      <DependentUpon>ProductionTechnology.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutControlForm.resx">
+      <DependentUpon>OutControlForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintenanceManagement.resx">
+      <DependentUpon>MaintenanceManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finances\Profits.resx">
+      <DependentUpon>Profits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Finances\Salaries.resx">
+      <DependentUpon>Salaries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finances\Salariessummary.resx">
+      <DependentUpon>Salariessummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesDepartment.resx">
+      <DependentUpon>SalesDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QualityControl.resx">
+      <DependentUpon>QualityControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Machine.datasource" />
+    <None Include="Maintenance.datasource" />
+    <None Include="OrderDetail.datasource" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Product.datasource" />
+    <None Include="Production\PlannedProduction.datasource" />
+    <None Include="Production\PlannedProductionEmployeeDetail.datasource" />
+    <None Include="Production\Product.datasource" />
+    <None Include="Production\Production.datasource" />
+    <None Include="Production\ProductionFailures.datasource" />
+    <None Include="Production\ProductionPlanned.datasource" />
+    <None Include="Production\ProductionProce.datasource" />
+    <None Include="Production\ProductionProcess.datasource" />
+    <None Include="Production\ProductionProducts.datasource" />
+    <None Include="Production\ProductionTechnology.datasource" />
+    <None Include="Properties\DataSources\vUnhandledOrderDetails.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="RoofingCompanyModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RoofingCompanyModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="RoofingCompanyModel.edmx.diagram">
+      <DependentUpon>RoofingCompanyModel.edmx</DependentUpon>
+    </None>
+    <None Include="Technology.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\53062472_302328053765523_8291849142804676608_n.png" />
+    <Content Include="RoofingCompanyModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RoofingCompanyModel.Context.cs</LastGenOutput>
+      <DependentUpon>RoofingCompanyModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="RoofingCompanyModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RoofingCompanyModel.edmx</DependentUpon>
+      <LastGenOutput>RoofingCompanyModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

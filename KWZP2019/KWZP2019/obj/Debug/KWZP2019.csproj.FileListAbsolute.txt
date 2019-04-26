@@ -1,0 +1,100 @@
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\bin\Debug\KWZP2019.exe.config
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\bin\Debug\KWZP2019.exe
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\bin\Debug\KWZP2019.pdb
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\bin\Debug\EntityFramework.dll
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\bin\Debug\EntityFramework.xml
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.Absences.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.AddInvoices.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.AddEmployee.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.AddTraining.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.AllCosts.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.Costs.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.EmployeeDetails.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.EntranceControlForm.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.Examination.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.Finances.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.FinancesAndHR.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.StartForm.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.MachinesForm.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.MaintenanceCalendarForm.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.MaintenanceEmployeeCalendarForm.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.NewMaintenanceForm.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.OshTrainingForm.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.NewProductionPlan.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.HR.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.OSHControl.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.PartsForm.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.Production.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.ProductionFailures.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.ProductionHistory.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.ProductionPlanned.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.ProductionProcess.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.ProductionProducts.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.ProductionSelection.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.ProductionTechnology.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.OutControlForm.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.MaintenanceManagement.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.Profits.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.Properties.Resources.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.Salaries.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.SalariesSummary.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.SalesDepartment.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.QualityControl.resources
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.csproj.GenerateResource.cache
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.csproj.CoreCompileInputs.cache
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.csproj.CopyComplete
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.exe
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.pdb
+C:\Users\Damian\Desktop\kwzp michal nowe\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.csprojAssemblyReference.cache
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\bin\Debug\KWZP2019.exe.config
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\bin\Debug\KWZP2019.exe
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\bin\Debug\KWZP2019.pdb
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\bin\Debug\EntityFramework.dll
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\bin\Debug\EntityFramework.xml
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.csprojAssemblyReference.cache
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.Absences.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.AddInvoices.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.AddEmployee.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.AddTraining.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.AllCosts.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.Costs.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.EmployeeDetails.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.EntranceControlForm.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.Examination.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.Finances.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.FinancesAndHR.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.StartForm.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.MachinesForm.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.MaintenanceCalendarForm.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.MaintenanceEmployeeCalendarForm.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.NewMaintenanceForm.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.OshTrainingForm.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.NewProductionPlan.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.HR.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.OSHControl.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.PartsForm.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.Production.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.ProductionFailures.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.ProductionHistory.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.ProductionPlanned.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.ProductionProcess.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.ProductionProducts.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.ProductionSelection.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.ProductionTechnology.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.OutControlForm.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.MaintenanceManagement.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.Profits.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.Properties.Resources.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.Salaries.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.SalariesSummary.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.SalesDepartment.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.QualityControl.resources
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.csproj.GenerateResource.cache
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.csproj.CoreCompileInputs.cache
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.csproj.CopyComplete
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.exe
+C:\Users\Damian\Desktop\eksperymenty\KWZP2019\KWZP2019\KWZP2019\obj\Debug\KWZP2019.pdb
